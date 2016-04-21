@@ -1,0 +1,14 @@
+<library path="envire_maps">
+  <class class_name="envire::maps::ElevationMap" base_class_name="envire::core::ItemBase">
+    <description>IEEE Std Grid Elevation Map plugin</description>
+    <associations>
+      <class class_name="maps::grid::ElevationMap"></class>
+    </associations>
+ </class>
+ <class class_name="envire::maps::ContourMap" base_class_name="envire::core::ItemBase">
+    <description>IEEE Std Geometric Contour Map plugin</description>
+    <associations>
+      <class class_name="maps::grid::ContourMap"></class>
+    </associations>
+  </class>
+</library>
