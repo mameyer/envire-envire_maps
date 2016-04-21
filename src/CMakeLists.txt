@@ -1,7 +1,9 @@
 rock_library(envire_maps
-    SOURCES Dummy.cpp
-    HEADERS Dummy.hpp)
+    SOURCES ElevationMap.cpp
+            ContourMap.cpp
+    HEADERS ElevationMap.hpp
+            ContourMap.hpp
+    DEPS_CMAKE Boost
+    DEPS_PKGCONFIG envire_core)
 
-rock_executable(envire_maps_bin Main.cpp
-    DEPS envire_maps)
-
+install_plugin_info(envire_maps)
