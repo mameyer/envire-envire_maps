@@ -1,7 +1,21 @@
 rock_library(envire_maps
-    SOURCES ElevationMap.cpp
+    SOURCES 
+            GridMapC.cpp
+            GridMapI.cpp
+            GridMapF.cpp
+            GridMapD.cpp
+            ElevationMap.cpp
+            MLSMapKalman.cpp
+            MLSMapSloped.cpp            
             ContourMap.cpp
-    HEADERS ElevationMap.hpp
+    HEADERS 
+            GridMapC.hpp
+            GridMapI.hpp
+            GridMapF.hpp
+            GridMapD.hpp
+            ElevationMap.hpp
+            MLSMapKalman.hpp
+            MLSMapSloped.hpp            
             ContourMap.hpp
     DEPS_CMAKE Boost
     DEPS_PKGCONFIG maps envire_core)
