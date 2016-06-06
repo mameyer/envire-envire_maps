@@ -9,4 +9,6 @@
   <depend package="base/cmake" />
   <depend package="slam/maps" />
   <depend package="envire/envire_core" />
+  <depend package="envire/envire_gis" optional="1"/>
+
 </package>
