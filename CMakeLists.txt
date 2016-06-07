@@ -8,5 +8,4 @@ set(ROCK_TEST_ENABLED ON)
 include(PluginManager)
 include(EnvireGIS)
 rock_init(envire_maps 0.1)
-rock_standard_layout()
-envire_gis_plugin_layout()
+envire_gis_plugin_layout() #it extends rock_standard_layout
