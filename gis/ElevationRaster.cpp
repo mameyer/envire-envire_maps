@@ -16,21 +16,23 @@ void ElevationRaster::fromRasterBand(::envire::maps::ElevationMap &data)
     /** Shorter raster plugin band type name **/
     typedef RasterPluginBand<::envire::maps::ElevationMap> RasterType;
 
-    /** Get the raster band **/
-    GDALRasterBand *band = dynamic_cast<GDALRasterBand*>(this->GetRasterBand(this->band_number[dynamic_cast<RasterType*>(this)]));
+    //std::cout<<"Band number to get is: "<<this->band_number["hola"]<<"\n";
 
-    /** Get the number of cells (pixel in the raster) **/
-    ::maps::grid::Vector2ui cell_num(this->nRasterXSize, this->nRasterYSize);
-
-    /** Get the raster resolution **/
-    Eigen::Vector2d cell_resolution (this->geo_transform[1], -this->geo_transform[5]);
-
-    /** Create the Elevation Grid Map **/
-    ::envire::maps::ElevationMap::TemplateType elevation_map(cell_num, cell_resolution, band->GetNoDataValue());
-
-    std::cout<<"Elevation Map number of cell: "<<elevation_map.getNumCells().x()<<","<<elevation_map.getNumCells().y()<<"\n";
-    std::cout<<"Elevation Map resolution: "<<elevation_map.getResolution().x()<<","<<elevation_map.getResolution().y()<<"\n";
-
+//    /** Get the raster band **/
+//    GDALRasterBand *band = dynamic_cast<GDALRasterBand*>(this->GetRasterBand(this->band_number[dynamic_cast<RasterType*>(this)]));
+//
+//    /** Get the number of cells (pixel in the raster) **/
+//    ::maps::grid::Vector2ui cell_num(this->nRasterXSize, this->nRasterYSize);
+//
+//    /** Get the raster resolution **/
+//    Eigen::Vector2d cell_resolution (this->geo_transform[1], -this->geo_transform[5]);
+//
+//    /** Create the Elevation Grid Map **/
+//    ::envire::maps::ElevationMap::TemplateType elevation_map(cell_num, cell_resolution, band->GetNoDataValue());
+//
+//    std::cout<<"Elevation Map number of cell: "<<elevation_map.getNumCells().x()<<","<<elevation_map.getNumCells().y()<<"\n";
+//    std::cout<<"Elevation Map resolution: "<<elevation_map.getResolution().x()<<","<<elevation_map.getResolution().y()<<"\n";
+//
 //    ::envire::maps::ElevationMap::TemplateType::GridCellType &cells_map(elevation_map.cells)
 //    ::envire::maps::ElevationMap::TemplateType::CellType* cells_map_ptr = &cells_map[0][0];
 //
@@ -39,12 +41,12 @@ void ElevationRaster::fromRasterBand(::envire::maps::ElevationMap &data)
 //            cells_map_ptr, cell_num[0], cell_num[1],
 //            band_type, 0, 0);
 //
-    std::cout<<"Elevation Map Max: "<<elevation_map.getMax()<<"\n";
-    std::cout<<"Elevation Map Min: "<<elevation_map.getMin()<<"\n";
-
-    /** Set the data in ElevationMap **/
-    data.setData(elevation_map);
-
+//    std::cout<<"Elevation Map Max: "<<elevation_map.getMax()<<"\n";
+//    std::cout<<"Elevation Map Min: "<<elevation_map.getMin()<<"\n";
+//
+//    /** Set the data in ElevationMap **/
+//    data.setData(elevation_map);
+//
     return;
 }
 

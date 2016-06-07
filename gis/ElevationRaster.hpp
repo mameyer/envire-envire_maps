@@ -12,7 +12,10 @@ namespace envire { namespace gis
     class ElevationRaster: public RasterPlugin <::envire::maps::ElevationMap>
     {
         public:
-            ElevationRaster(GDALDataset* parent = NULL)
+            /*@brief Default constructor
+             */
+            ElevationRaster()
+            :RasterPlugin<::envire::maps::ElevationMap>()
             {
             }
 

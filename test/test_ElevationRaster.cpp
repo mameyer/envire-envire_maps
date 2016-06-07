@@ -1,5 +1,6 @@
 #include <boost/test/unit_test.hpp>
 #include <envire_gis/ElevationRaster.hpp>
+#include <exception>
 
 using namespace envire::gis;
 
@@ -40,7 +41,7 @@ void close(GDALDataset *raster)
 
     if (raster != NULL)
     {
-        GDALClose(raster);
+        GDALClose((GDALDatasetH)raster);
     }
     return;
 }
@@ -48,15 +49,27 @@ void close(GDALDataset *raster)
 
 BOOST_AUTO_TEST_CASE(test_read_raster)
 {
-    envire::gis::ElevationRaster *elevation_raster;
+
+    /** Register all known drivers **/
+    GDALAllRegister();
+    std::cout<<"Registering all known drivers\n";
 
     if (boost::unit_test::framework::master_test_suite().argc > 1.0)
     {
-        elevation_raster = dynamic_cast<envire::gis::ElevationRaster*>(open(static_cast<std::string>(boost::unit_test::framework::master_test_suite().argv[1])));
+        envire::gis::ElevationRaster *elevation_raster = new envire::gis::ElevationRaster();//static_cast<envire::gis::ElevationRaster *>(envire::gis::ElevationRaster::Import(open(static_cast<std::string>(boost::unit_test::framework::master_test_suite().argv[1]))));
 
         envire::maps::ElevationMap elevation_map;
 
-        elevation_raster->fromGis(elevation_map);
+        try
+        {
+            //elevation_raster->fromGis(elevation_map);
+        }
+        catch(std::exception& e)
+        {
+            std::cout << e.what() << '\n';
+        }
+
+        close(dynamic_cast<GDALDataset*>(elevation_raster));
     }
     else
     {
