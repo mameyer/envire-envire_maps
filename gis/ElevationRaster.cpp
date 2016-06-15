@@ -4,14 +4,12 @@
 
 using namespace envire::gis;
 
-ElevationRaster::~ElevationRaster() {}
-
-void ElevationRaster::toRasterBand(const ::envire::maps::ElevationMap &data)
+void ElevationRaster::convertToRasterBand(const ::envire::maps::ElevationMap &data)
 {
 
 }
 
-void ElevationRaster::fromRasterBand(::envire::maps::ElevationMap &data)
+void ElevationRaster::convertToEnvireType(::envire::maps::ElevationMap &data)
 {
     /** Shorter raster plugin band type name **/
     typedef RasterPluginBand<::envire::maps::ElevationMap> RasterType;

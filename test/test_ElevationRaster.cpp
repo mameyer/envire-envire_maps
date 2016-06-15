@@ -56,20 +56,25 @@ BOOST_AUTO_TEST_CASE(test_read_raster)
 
     if (boost::unit_test::framework::master_test_suite().argc > 1.0)
     {
-        envire::gis::ElevationRaster *elevation_raster = new envire::gis::ElevationRaster();//static_cast<envire::gis::ElevationRaster *>(envire::gis::ElevationRaster::Import(open(static_cast<std::string>(boost::unit_test::framework::master_test_suite().argv[1]))));
+        /** Open the dataset **/
+        GDALDataset *dataset = open(static_cast<std::string>(boost::unit_test::framework::master_test_suite().argv[1]));
+
+        /** Get the raster band **/
+        envire::gis::ElevationRaster *elevation_raster = envire::gis::ElevationRaster::Import(dataset->GetRasterBand(1));
+        //envire::gis::ElevationRaster *elevation_raster = new envire::gis::ElevationRaster();
 
         envire::maps::ElevationMap elevation_map;
 
-        try
-        {
-            //elevation_raster->fromGis(elevation_map);
-        }
-        catch(std::exception& e)
-        {
-            std::cout << e.what() << '\n';
-        }
+//        try
+//        {
+            //elevation_raster->fromGis<envire::maps::ElevationMap>(elevation_map);
+//        }
+//        catch(std::exception& e)
+//        {
+//            std::cout << e.what() << '\n';
+//        }
 
-        close(dynamic_cast<GDALDataset*>(elevation_raster));
+        close(dataset);
     }
     else
     {

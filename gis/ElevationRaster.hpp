@@ -14,21 +14,27 @@ namespace envire { namespace gis
         public:
             /*@brief Default constructor
              */
-            ElevationRaster()
-            :RasterPlugin<::envire::maps::ElevationMap>()
+            ElevationRaster( RasterPlugin <::envire::maps::ElevationMap> *parent = NULL)
+            :RasterPlugin<::envire::maps::ElevationMap>(parent)
             {
             }
 
-            ~ElevationRaster();
+            ~ElevationRaster(){};
+
+            static ElevationRaster *Import(GDALRasterBand *raster_band)
+            {
+                return dynamic_cast< ::envire::gis::ElevationRaster * >(RasterPlugin<::envire::maps::ElevationMap>::Import(raster_band));
+            }
+
 
         protected:
             /* @brief Convert Elevation Map to Raster data
              */
-            void toRasterBand(const ::envire::maps::ElevationMap &data);
+            void convertToRasterBand(const ::envire::maps::ElevationMap &data);
 
             /* @brief Convert Raster data to Elevation map
              */
-            void fromRasterBand(::envire::maps::ElevationMap &data);
+            void convertToEnvireType(::envire::maps::ElevationMap &data);
     };
 
 }} // end namespace envire::gis
