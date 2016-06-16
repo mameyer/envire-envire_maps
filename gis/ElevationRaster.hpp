@@ -14,8 +14,8 @@ namespace envire { namespace gis
         public:
             /*@brief Default constructor
              */
-            ElevationRaster( RasterPlugin <::envire::maps::ElevationMap> *parent = NULL)
-            :RasterPlugin<::envire::maps::ElevationMap>(parent)
+            ElevationRaster( GDALRasterBand *parent = NULL, const base::Vector2d &resolution = base::Vector2d::Zero())
+            :RasterPlugin<::envire::maps::ElevationMap>(parent, resolution)
             {
             }
 
@@ -34,9 +34,16 @@ namespace envire { namespace gis
 
             /* @brief Convert Raster data to Elevation map
              */
-            void convertToEnvireType(::envire::maps::ElevationMap &data);
+            void convertToEnvireType(::envire::maps::ElevationMap &data, const base::Vector2d &cell_resolution = base::Vector2d::Zero());
     };
 
+    //Note how this is declared outside of the class body, so it is a free function instead of a memberfunction
+    inline std::ostream& operator<<(std::ostream& out, const ElevationRaster& val)
+    {
+        out << "ElevationRaster\n";
+        out << static_cast< const RasterPlugin< ::envire::maps::ElevationMap > &>(val);
+        return out;
+    }
 }} // end namespace envire::gis
 
 #endif // _GIS_RASTER_HPP_

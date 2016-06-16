@@ -17,7 +17,7 @@ GDALDataset *open(std::string const& path)
     std::cout<< "Driver: "<< raster->GetDriver()->GetDescription() <<" "<<
             raster->GetDriver()->GetMetadataItem( GDAL_DMD_LONGNAME )<<"\n";
 
-    std::cout<<"Size : "<< raster->GetRasterXSize()<<" "<<raster->GetRasterYSize() << " "<<
+    std::cout<<"Size : "<< raster->GetRasterXSize()<<" x "<<raster->GetRasterYSize() << " "<<
             raster->GetRasterCount()<<"\n";
 
     if(raster->GetProjectionRef()  != NULL)
@@ -56,18 +56,24 @@ BOOST_AUTO_TEST_CASE(test_read_raster)
 
     if (boost::unit_test::framework::master_test_suite().argc > 1.0)
     {
+        /*** Envire Elevation map **/
+        envire::maps::ElevationMap elevation_map;
+
         /** Open the dataset **/
         GDALDataset *dataset = open(static_cast<std::string>(boost::unit_test::framework::master_test_suite().argv[1]));
 
-        /** Get the raster band **/
-        envire::gis::ElevationRaster *elevation_raster = envire::gis::ElevationRaster::Import(dataset->GetRasterBand(1));
-        //envire::gis::ElevationRaster *elevation_raster = new envire::gis::ElevationRaster();
+        double geo_transform[6];
+        dataset->GetGeoTransform(geo_transform);
 
-        envire::maps::ElevationMap elevation_map;
+        /** Get the raster band **/
+        //envire::gis::ElevationRaster *elevation_raster = envire::gis::ElevationRaster::Import(dataset->GetRasterBand(1));
+        envire::gis::ElevationRaster *elevation_raster = new envire::gis::ElevationRaster(dataset->GetRasterBand(1), base::Vector2d(geo_transform[1], geo_transform[5]));
+
+        std::cout<<"INFORMATION:\n"<<*elevation_raster<<"\n";
 
 //        try
 //        {
-            //elevation_raster->fromGis<envire::maps::ElevationMap>(elevation_map);
+        elevation_raster->fromGis<envire::maps::ElevationMap>(elevation_map);
 //        }
 //        catch(std::exception& e)
 //        {
