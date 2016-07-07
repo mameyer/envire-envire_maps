@@ -1,4 +1,4 @@
-rock_testsuite(test_elevation suite.cpp test_ElevationRaster.cpp
+rock_testsuite(test_suite suite.cpp test_ElevationRaster.cpp test_plugins.cpp
     DEPS_PKGCONFIG envire_gis
     DEPS envire_maps envire_maps-gis)
 
