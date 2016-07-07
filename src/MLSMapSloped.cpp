@@ -1,4 +1,7 @@
-#include <envire_maps/MLSMapSloped.hpp>
+/** Std maps **/
+#include <maps/grid/MLSMap.hpp>
+/** Envire core **/
+#include <envire_core/plugin/Plugin.hpp>
 
-ENVIRE_REGISTER_PLUGIN( envire::maps::MLSMapSloped )
+ENVIRE_REGISTER_ITEM( maps::grid::MLSMapSloped )
 

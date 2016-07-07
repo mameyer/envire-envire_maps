@@ -1,4 +1,6 @@
-#include <envire_maps/GridMapD.hpp>
+/** Envire core **/
+#include <envire_core/plugin/Plugin.hpp>
+/** Std maps **/
+#include <maps/grid/GridMap.hpp>
 
-ENVIRE_REGISTER_PLUGIN( envire::maps::GridMapD )
-
+ENVIRE_REGISTER_ITEM( maps::grid::GridMapD )
