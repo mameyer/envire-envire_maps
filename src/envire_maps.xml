@@ -1,14 +1,50 @@
 <library path="envire_maps">
-  <class class_name="envire::maps::ElevationMap" base_class_name="envire::core::ItemBase">
+ <class class_name="envire::core::Item<maps::grid::ElevationMap>" base_class_name="envire::core::ItemBase">
     <description>IEEE Std Grid Elevation Map plugin</description>
     <associations>
       <class class_name="maps::grid::ElevationMap"></class>
     </associations>
  </class>
- <class class_name="envire::maps::ContourMap" base_class_name="envire::core::ItemBase">
+ <class class_name="envire::core::Item<maps::geometric::ContourMap>" base_class_name="envire::core::ItemBase">
     <description>IEEE Std Geometric Contour Map plugin</description>
     <associations>
       <class class_name="maps::grid::ContourMap"></class>
+    </associations>
+  </class>
+ <class class_name="envire::core::Item<maps::grid::GridMapC>" base_class_name="envire::core::ItemBase">
+    <description>IEEE Std 2D grid of type char</description>
+    <associations>
+      <class class_name="maps::grid::GridMapC"></class>
+    </associations>
+  </class>
+ <class class_name="envire::core::Item<maps::grid::GridMapD>" base_class_name="envire::core::ItemBase">
+    <description>IEEE Std 2D grid of type double</description>
+    <associations>
+      <class class_name="maps::grid::GridMapD"></class>
+    </associations>
+  </class>
+ <class class_name="envire::core::Item<maps::grid::GridMapF>" base_class_name="envire::core::ItemBase">
+    <description>IEEE Std 2D grid of type float</description>
+    <associations>
+      <class class_name="maps::grid::GridMapF"></class>
+    </associations>
+  </class>
+ <class class_name="envire::core::Item<maps::grid::GridMapI>" base_class_name="envire::core::ItemBase">
+    <description>IEEE Std 2D grid of type int</description>
+    <associations>
+      <class class_name="maps::grid::GridMapI"></class>
+    </associations>
+  </class>
+ <class class_name="envire::core::Item<maps::grid::MLSMapKalman>" base_class_name="envire::core::ItemBase">
+    <description>Multi-level surface map</description>
+    <associations>
+      <class class_name="maps::grid::MLSMapKalman"></class>
+    </associations>
+  </class>
+ <class class_name="envire::core::Item<maps::grid::MLSMapSloped>" base_class_name="envire::core::ItemBase">
+    <description>Sloped multi-level surface map</description>
+    <associations>
+      <class class_name="maps::grid::MLSMapSloped"></class>
     </associations>
   </class>
 </library>
