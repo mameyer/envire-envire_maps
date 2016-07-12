@@ -4,12 +4,12 @@
 
 using namespace envire::gis;
 
-void ElevationRaster::convertToRasterBand(const ::envire::maps::ElevationMap &data)
+void ElevationRaster::convertToRasterBand(const ::maps::grid::ElevationMap &data)
 {
 
 }
 
-void ElevationRaster::convertToEnvireType(::envire::maps::ElevationMap &data, const base::Vector2d &cell_resolution)
+void ElevationRaster::convertToEnvireType(::maps::grid::ElevationMap &data, const base::Vector2d &cell_resolution)
 {
     /** Get the raster band **/
 //    GDALRasterBand *band = dynamic_cast<GDALRasterBand*>(this->GetRasterBand(this->bandNumber()));
@@ -18,7 +18,7 @@ void ElevationRaster::convertToEnvireType(::envire::maps::ElevationMap &data, co
     ::maps::grid::Vector2ui cell_num(this->nRasterXSize, this->nRasterYSize);
 
     /** Create the Elevation Grid Map **/
-    ::envire::maps::ElevationMap::TemplateType elevation_map(cell_num, cell_resolution, this->GetNoDataValue());
+    ::maps::grid::ElevationMap elevation_map(cell_num, cell_resolution, this->GetNoDataValue());
 
     std::cout<<"Elevation Map number of cell: "<<elevation_map.getNumCells().x()<<","<<elevation_map.getNumCells().y()<<"\n";
     std::cout<<"Elevation Map resolution: "<<elevation_map.getResolution().x()<<","<<elevation_map.getResolution().y()<<"\n";
@@ -35,7 +35,7 @@ void ElevationRaster::convertToEnvireType(::envire::maps::ElevationMap &data, co
 //    std::cout<<"Elevation Map Min: "<<elevation_map.getMin()<<"\n";
 //
 //    /** Set the data in ElevationMap **/
-    data.setData(elevation_map);
+    data = elevation_map;
 
     return;
 }

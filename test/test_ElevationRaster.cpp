@@ -57,7 +57,7 @@ BOOST_AUTO_TEST_CASE(test_read_raster)
     if (boost::unit_test::framework::master_test_suite().argc > 1.0)
     {
         /*** Envire Elevation map **/
-        envire::maps::ElevationMap elevation_map;
+        maps::grid::ElevationMap elevation_map;
 
         /** Open the dataset **/
         GDALDataset *dataset = open(static_cast<std::string>(boost::unit_test::framework::master_test_suite().argv[1]));
@@ -73,7 +73,7 @@ BOOST_AUTO_TEST_CASE(test_read_raster)
 
 //        try
 //        {
-        elevation_raster->fromGis<envire::maps::ElevationMap>(elevation_map);
+        elevation_raster->fromGis<maps::grid::ElevationMap>(elevation_map);
 //        }
 //        catch(std::exception& e)
 //        {
