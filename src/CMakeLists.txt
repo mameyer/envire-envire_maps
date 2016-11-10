@@ -6,7 +6,8 @@ rock_library(envire_maps
             GridMapD.cpp
             ElevationMap.cpp
             MLSMapKalman.cpp
-            MLSMapSloped.cpp            
+            MLSMapSloped.cpp    
+            MlsMapPrecalculated.cpp
             ContourMap.cpp
     DEPS_CMAKE Boost
     DEPS_PKGCONFIG maps envire_core)
