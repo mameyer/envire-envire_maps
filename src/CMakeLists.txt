@@ -10,6 +10,7 @@ rock_library(envire_maps
             MlsMapPrecalculated.cpp
             ContourMap.cpp
             OccupancyGridMap.cpp
+            TSDFVolumetricMap.cpp
     DEPS_CMAKE Boost
     DEPS_PKGCONFIG maps envire_core)
 
