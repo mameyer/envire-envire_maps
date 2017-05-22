@@ -30,30 +30,33 @@
 #include <boost/noncopyable.hpp>
 #include <vizkit3d/Vizkit3DPlugin.hpp>
 #include <osg/Geode>
-#include <envire/items/SpatioTemporal.hpp>
+#include <envire_core/items/SpatioTemporal.hpp>
+#include <maps/grid/MLSMap.hpp>
+#include <vizkit3d/MLSMapVisualization.hpp>
 
 namespace vizkit3d
 {
-    class SpatioTemporalMLSMapKalman
-        : public vizkit3d::Vizkit3DPlugin<envire::core::SpatioTemporal<maps::grid::MLSMapKalman>>
-        , boost::noncopyable
+    class SpatioTemporalMLSMap
+        : public MLSMapVisualization
     {
-    Q_OBJECT
+        Q_OBJECT
+
     public:
-        SpatioTemporalMLSMapKalman();
-        ~SpatioTemporalMLSMapKalman();
-
-    Q_INVOKABLE void updateData(envire::core::SpatioTemporal<maps::grid::MLSMapKalman> const &sample)
-    {vizkit3d::Vizkit3DPlugin<envire::core::SpatioTemporal<maps::grid::MLSMapKalman>>::updateData(sample);}
-
-    protected:
-        virtual osg::ref_ptr<osg::Node> createMainNode();
-        virtual void updateMainNode(osg::Node* node);
-        virtual void updateDataIntern(envire::core::SpatioTemporal<maps::grid::MLSMapKalman> const& plan);
+        SpatioTemporalMLSMap();
+        ~SpatioTemporalMLSMap();
         
+        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapKalman>& data);
+        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapPrecalculated>& data);
+        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapSloped>& data);
+        
+        Q_INVOKABLE void updateSpatioTemporalMLSMapKalman(const envire::core::SpatioTemporal<maps::grid::MLSMap<maps::grid::MLSConfig::KALMAN>>& data)
+        { updateData(data); }
+        Q_INVOKABLE void updateSpatioTemporalMLSMapPrecalculated(const envire::core::SpatioTemporal<maps::grid::MLSMap<maps::grid::MLSConfig::PRECALCULATED>>& data)
+        { updateData(data); }
+        Q_INVOKABLE void updateSpatioTemporalMLSMapSloped(const envire::core::SpatioTemporal<maps::grid::MLSMap<maps::grid::MLSConfig::SLOPE>>& data)
+        { updateData(data); }
+
     private:
-        struct Data;
-        Data* p;
     };
 }
 #endif
