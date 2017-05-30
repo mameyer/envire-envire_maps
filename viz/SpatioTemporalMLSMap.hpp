@@ -45,9 +45,19 @@ namespace vizkit3d
         SpatioTemporalMLSMap();
         ~SpatioTemporalMLSMap();
         
-        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapKalman>& data);
-        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapPrecalculated>& data);
-        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapSloped>& data);
+        template<class T>
+        void updateData(const envire::core::SpatioTemporal<T>& data)
+        {
+            setVisualizationFrame(QString::fromStdString(data.frame_id));
+            MLSMapVisualization::updateData(data.data);
+        }
+        
+        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapKalman>& data)
+        { updateData<maps::grid::MLSMapKalman>(data); }
+        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapPrecalculated>& data)
+        { updateData<maps::grid::MLSMapPrecalculated>(data); }
+        Q_INVOKABLE void updateData(const envire::core::SpatioTemporal<maps::grid::MLSMapSloped>& data)
+        { updateData<maps::grid::MLSMapSloped>(data); }
         
         Q_INVOKABLE void updateSpatioTemporalMLSMapKalman(const envire::core::SpatioTemporal<maps::grid::MLSMap<maps::grid::MLSConfig::KALMAN>>& data)
         { updateData(data); }
