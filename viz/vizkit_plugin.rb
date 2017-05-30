@@ -23,6 +23,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-Vizkit::UiLoader.register_3d_plugin('SpatioTemporalMLSMapKalman', 'envire_maps', 'SpatioTemporalMLSMapKalman')
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapKalman', "/envire/core/SpatioTemporal<maps/grid/MLSMapKalman>", :updateData )
-
+Vizkit::UiLoader.register_3d_plugin('SpatioTemporalMLSMap', 'envire_maps', 'SpatioTemporalMLSMap')
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMap', "/envire/core/SpatioTemporal<maps/grid/MLSMapKalman>", :updateData )
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMap', "/envire/core/SpatioTemporal<maps/grid/MLSMapPrecalculated>", :updateData )
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMap', "/envire/core/SpatioTemporal<maps/grid/MLSMapSloped>", :updateData )
