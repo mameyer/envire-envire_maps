@@ -1,6 +1,19 @@
 rock_vizkit_plugin(envire_maps-viz
-   SpatioTemporalMLSMap.cpp
-   DEPS envire_maps
-   DEPS_PKGCONFIG maps-viz
-   MOC SpatioTemporalMLSMap.hpp
-   HEADERS SpatioTemporalMLSMap.hpp)
+        PluginLoader.cpp
+    MOC
+        SpatioTemporalContourMapVisualization.hpp
+        SpatioTemporalElevationMapVisualization.hpp
+        SpatioTemporalGridMapVisualization.hpp
+        SpatioTemporalMLSMapVisualization.hpp
+        SpatioTemporalOccupancyGridMapVisualization.hpp
+    HEADERS
+        SpatioTemporalContourMapVisualization.hpp
+        SpatioTemporalElevationMapVisualization.hpp
+        SpatioTemporalGridMapVisualization.hpp
+        SpatioTemporalMLSMapVisualization.hpp
+        SpatioTemporalOccupancyGridMapVisualization.hpp
+    DEPS
+        envire_maps
+    DEPS_PKGCONFIG
+        maps-viz
+)

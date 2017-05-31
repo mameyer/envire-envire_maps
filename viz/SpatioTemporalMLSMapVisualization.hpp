@@ -24,8 +24,8 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef envire_maps_SpatioTemporalMLSMapKalman_H
-#define envire_maps_SpatioTemporalMLSMapKalman_H
+#ifndef envire_maps_SpatioTemporalMLSMapVisualization_H
+#define envire_maps_SpatioTemporalMLSMapVisualization_H
 
 #include <boost/noncopyable.hpp>
 #include <vizkit3d/Vizkit3DPlugin.hpp>
@@ -36,14 +36,19 @@
 
 namespace vizkit3d
 {
-    class SpatioTemporalMLSMap
+    class SpatioTemporalMLSMapVisualization
         : public MLSMapVisualization
     {
         Q_OBJECT
 
     public:
-        SpatioTemporalMLSMap();
-        ~SpatioTemporalMLSMap();
+        SpatioTemporalMLSMapVisualization()
+        {
+        }
+
+        ~SpatioTemporalMLSMapVisualization()
+        {
+        }
         
         template<class T>
         void updateData(const envire::core::SpatioTemporal<T>& data)
@@ -65,8 +70,8 @@ namespace vizkit3d
         { updateData(data); }
         Q_INVOKABLE void updateSpatioTemporalMLSMapSloped(const envire::core::SpatioTemporal<maps::grid::MLSMap<maps::grid::MLSConfig::SLOPE>>& data)
         { updateData(data); }
-
     private:
     };
 }
+
 #endif
