@@ -23,7 +23,22 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-Vizkit::UiLoader.register_3d_plugin('SpatioTemporalMLSMap', 'envire_maps', 'SpatioTemporalMLSMap')
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMap', "/envire/core/SpatioTemporal<maps/grid/MLSMapKalman>", :updateData )
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMap', "/envire/core/SpatioTemporal<maps/grid/MLSMapPrecalculated>", :updateData )
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMap', "/envire/core/SpatioTemporal<maps/grid/MLSMapSloped>", :updateData )
+Vizkit::UiLoader.register_3d_plugin('SpatioTemporalContourMapVisualization', 'envire_maps', 'SpatioTemporalContourMapVisualization')
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalContourMapVisualization', "/envire/core/SpatioTemporal<maps/geometric/ContourMap>", :updateSpatioTemporalContourMap)
+
+Vizkit::UiLoader.register_3d_plugin('SpatioTemporalElevationMapVisualization', 'envire_maps', 'SpatioTemporalElevationMapVisualization')
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalElevationMapVisualization', "/envire/core/SpatioTemporal<maps/grid/ElevationMap>", :updateSpatioTemporalElevationMap)
+
+Vizkit::UiLoader.register_3d_plugin('SpatioTemporalGridMapVisualization', 'envire_maps', 'SpatioTemporalGridMapVisualization')
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapD>", :updateSpatioTemporalGridMapD)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapI>", :updateSpatioTemporalGridMapI)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapF>", :updateSpatioTemporalGridMapF)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapC>", :updateSpatioTemporalGridMapC)
+
+Vizkit::UiLoader.register_3d_plugin('SpatioTemporalMLSMapVisualization', 'envire_maps', 'SpatioTemporalMLSMapVisualization')
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal<maps/grid/MLSMapKalman>", :updateSpatioTemporalMLSMapKalman)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal<maps/grid/MLSMapPrecalculated>", :updateSpatioTemporalMLSMapPrecalculated)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal<maps/grid/MLSMapSloped>", :updateSpatioTemporalMLSMapSloped)
+
+Vizkit::UiLoader.register_3d_plugin('SpatioTemporalOccupancyGridMapVisualization', 'envire_maps', 'SpatioTemporalOccupancyGridMapVisualization')
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalOccupancyGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/OccupancyGridMap>", :updateSpatioTemporalOccupancyGridMap)
