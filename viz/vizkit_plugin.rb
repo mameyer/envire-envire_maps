@@ -24,21 +24,21 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 Vizkit::UiLoader.register_3d_plugin('SpatioTemporalContourMapVisualization', 'envire_maps', 'SpatioTemporalContourMapVisualization')
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalContourMapVisualization', "/envire/core/SpatioTemporal<maps/geometric/ContourMap>", :updateSpatioTemporalContourMap)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalContourMapVisualization', "/envire/core/SpatioTemporal</maps/geometric/ContourMap>", :updateSpatioTemporalContourMap)
 
 Vizkit::UiLoader.register_3d_plugin('SpatioTemporalElevationMapVisualization', 'envire_maps', 'SpatioTemporalElevationMapVisualization')
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalElevationMapVisualization', "/envire/core/SpatioTemporal<maps/grid/ElevationMap>", :updateSpatioTemporalElevationMap)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalElevationMapVisualization', "/envire/core/SpatioTemporal</maps/grid/ElevationMap>", :updateSpatioTemporalElevationMap)
 
 Vizkit::UiLoader.register_3d_plugin('SpatioTemporalGridMapVisualization', 'envire_maps', 'SpatioTemporalGridMapVisualization')
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapD>", :updateSpatioTemporalGridMapD)
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapI>", :updateSpatioTemporalGridMapI)
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapF>", :updateSpatioTemporalGridMapF)
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/GridMapC>", :updateSpatioTemporalGridMapC)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal</maps/grid/GridMapD>", :updateSpatioTemporalGridMapD)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal</maps/grid/GridMapI>", :updateSpatioTemporalGridMapI)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal</maps/grid/GridMapF>", :updateSpatioTemporalGridMapF)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalGridMapVisualization', "/envire/core/SpatioTemporal</maps/grid/GridMapC>", :updateSpatioTemporalGridMapC)
 
 Vizkit::UiLoader.register_3d_plugin('SpatioTemporalMLSMapVisualization', 'envire_maps', 'SpatioTemporalMLSMapVisualization')
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal<maps/grid/MLSMapKalman>", :updateSpatioTemporalMLSMapKalman)
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal<maps/grid/MLSMapPrecalculated>", :updateSpatioTemporalMLSMapPrecalculated)
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal<maps/grid/MLSMapSloped>", :updateSpatioTemporalMLSMapSloped)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal</maps/grid/MLSMapKalman>", :updateSpatioTemporalMLSMapKalman)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal</maps/grid/MLSMapPrecalculated>", :updateSpatioTemporalMLSMapPrecalculated)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalMLSMapVisualization', "/envire/core/SpatioTemporal</maps/grid/MLSMapSloped>", :updateSpatioTemporalMLSMapSloped)
 
 Vizkit::UiLoader.register_3d_plugin('SpatioTemporalOccupancyGridMapVisualization', 'envire_maps', 'SpatioTemporalOccupancyGridMapVisualization')
-Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalOccupancyGridMapVisualization', "/envire/core/SpatioTemporal<maps/grid/OccupancyGridMap>", :updateSpatioTemporalOccupancyGridMap)
+Vizkit::UiLoader.register_3d_plugin_for('SpatioTemporalOccupancyGridMapVisualization', "/envire/core/SpatioTemporal</maps/grid/OccupancyGridMap>", :updateSpatioTemporalOccupancyGridMap)
